@@ -42,7 +42,7 @@ https://youtu.be/fw8hvolebLw?si=JdjwxnobDVRBrx1j
 
 ## Non-Trivial functional dependency
 
-- X → Y라고 할 때 Y가 X의 부 분집합이 아니라면, X → Y는 Non-Trivial FD이다.
+- X → Y라고 할 때 Y가 X의 부분집합이 아니라면, X → Y는 Non-Trivial FD이다.
 - ex.
     - {a, b, c} → {b, c, d}: non-trivial FD
     - {a, b, c} → {d, e}: non-trivial FD + completely non-trivial FD
@@ -60,3 +60,8 @@ https://youtu.be/fw8hvolebLw?si=JdjwxnobDVRBrx1j
 
 - X → Y일 때, X의 “모든” proper subset이 Y와 FD 관계가 “성립하지 않는다면”, X→Y는 Full FD라고 한다.
 - ex. {stu_id, class_id} → {grade}
+
+
+
+
+
