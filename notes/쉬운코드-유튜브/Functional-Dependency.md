@@ -35,7 +35,7 @@ https://youtu.be/fw8hvolebLw?si=JdjwxnobDVRBrx1j
 
 ## Trivial functional dependency
 
-- X → Y라고 할 때 Y가 X의 부분 집합이라면, X → Y는 trivial FD이다.
+- X → Y라고 할 때 Y가 X의 부분집합(subset)이라면, X → Y는 trivial FD이다.
 - ex.
     - {a, b, c} → {c}이라면 trivial FD
     - {a, b, c} → {a, b, c}이라면 trivial FD
@@ -50,7 +50,7 @@ https://youtu.be/fw8hvolebLw?si=JdjwxnobDVRBrx1j
 ## Partial functional dependency
 
 - X → Y일 때, X의 proper subset 중에 “하나라도 Y와 FD 관계가 성립한다면” X→Y는 partial FD라고 한다.
-- X의 proper subset: X의 부분 집합이지만, X와는 동일하지 않은 집합
+- X의 proper subset(진부분집합): X의 부분 집합이지만, X와는 동일하지 않은 집합
 - ex.
     - {empl_id, empl_name} → {birth_date}
     - {empl_id} → {birth_date}도 가능!
