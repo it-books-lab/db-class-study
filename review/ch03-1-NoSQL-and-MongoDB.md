@@ -972,6 +972,58 @@ Primary (기본 서버)
 
 <img width="1387" height="682" alt="image" src="https://github.com/user-attachments/assets/beb6c71d-e20d-474a-b40e-1b274ec16d00" />
 
+
+MongoDB는 설치하고 실행하면 **자동으로 `admin`, `local`, `config` 데이터베이스를 생성**합니다.
+
+이건 사용자가 만든 게 아니라 **MongoDB 서버가 내부 용도로 사용하는 시스템 데이터베이스**예요.
+
+하나씩 정리해드릴게요 👇
+
+---
+
+### 🗂️ MongoDB의 기본 내장 데이터베이스 3개
+
+| DB 이름 | 용도 | 주요 특징 |
+| --- | --- | --- |
+| **`admin`** | **관리 및 권한 제어용** | - “루트 데이터베이스”로, 관리 명령어(`createUser`, `shutdown`, `serverStatus` 등)를 실행할 수 있음- 관리자는 보통 이 DB에서 생성됨 |
+| **`local`** | **복제(Replication) 관련 데이터 저장용** | - **각 서버(노드)**마다 고유하게 존재함 (복제 세트 간 공유되지 않음)- oplog(작업 로그)가 저장되어, 복제 시 변경 내역을 추적함 |
+| **`config`** | **샤딩(Sharding) 관련 설정용** | - 샤딩 클러스터 환경에서 **데이터 분할 정보**(어떤 shard에 어떤 데이터가 있는지)를 저장함- 일반 단일 서버(Mongod)에서는 거의 비어 있음 |
+
+---
+
+### 🧠 추가 설명
+
+- **`show dbs`** 명령을 바로 실행하면,
+    
+    이 DB들이 안 보일 수도 있습니다.
+    
+    (기본적으로 **데이터가 존재하는 DB만 표시**하기 때문이에요.)
+    
+    예시:
+    
+    ```bash
+    > show dbs
+    admin     0.000GB
+    local     0.000GB
+    config    0.000GB
+    test      0.001GB
+    
+    ```
+    
+- 그러나 `use admin` 같이 명령으로 직접 접근하면 항상 존재합니다.
+
+---
+
+### 💡 정리
+
+| 이름 | 자동 생성 여부 | 역할 |
+| --- | --- | --- |
+| `admin` | ✅ 예 | 사용자 권한, 관리 명령 |
+| `local` | ✅ 예 | 복제 로그(oplog) |
+| `config` | ✅ 예 | 샤딩 메타데이터 |
+
+---
+
 <img width="1389" height="666" alt="image" src="https://github.com/user-attachments/assets/6abd9bed-9a0b-4b89-837a-b21c742d6abf" />
 
 
